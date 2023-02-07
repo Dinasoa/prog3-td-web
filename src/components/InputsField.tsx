@@ -4,8 +4,7 @@ import '../style/style.css'
 interface Props{
     todo: string
     setTodo: React.Dispatch<React.SetStateAction<string>>
-    handleAdd: (e:React.FormEvent) => void;
-  
+    handleAdd: (e:React.FormEvent) => void;  
 }
 
 export const InputsField:React.FC<Props> = ({todo , setTodo , handleAdd}:Props) => {
@@ -16,16 +15,15 @@ export const InputsField:React.FC<Props> = ({todo , setTodo , handleAdd}:Props) 
             <form className="input" onSubmit={(e) => {
                 handleAdd(e)
                 inputRef.current?.blur();
-            
             }}>
                 <input type="input"
-                ref={inputRef}
+                    ref={inputRef}
                     placeholder="Enter a task"
                     className="input__box" 
                     value={todo}
                     onChange={(e) => setTodo(e.target.value)}
                 />
-                <button className="input_submit" type="submit">Go</button>
+                <button className="input_submit" type="submit" data-testid="submit-button">Enter</button>
             </form>
         </>
     )

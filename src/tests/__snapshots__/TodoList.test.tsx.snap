@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check if TodoList match the snapshot 1`] = `
+<div
+  className="todoList"
+>
+  <div
+    className="todos"
+    data-testid="to-do"
+  >
+    <span
+      className="title"
+    >
+      TO DO
+    </span>
+    <li
+      data-testid="todo"
+    >
+      <input
+        data-testid="input-checkbox"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      code
+    </li>
+  </div>
+  <div
+    className="todos"
+  >
+    <span
+      className="title"
+    >
+      DONE
+    </span>
+  </div>
+</div>
+`;

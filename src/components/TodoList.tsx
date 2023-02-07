@@ -5,32 +5,32 @@ import '../style/style.css';
 interface Props {
     todos: Todo[];
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
-    changeStatus: (todo:Todo) => void;
+    changeStatusToDone: (todo:Todo) => void;
+    changeStatusTodo: (todo:Todo) => void;
 }
 
-
-export const TodoList: React.FC<Props> = ({ todos, setTodos , changeStatus}) => {
+export const TodoList: React.FC<Props> = ({ todos, setTodos , changeStatusToDone , changeStatusTodo}) => {
  
     return (
         <>
             <div className="todoList">
-                <div className="todos">
-                <span>TO DO</span>
-                    {todos.map((todo) => todo.isDone == false && (
+                <div className="todos" data-testid="to-do">
+                <span className="title" >TO DO</span>
+                    {todos.map((todo) =>  todo.isDone == false && (
                         <>
-                        <li>
-                            <input type="checkbox" onChange={() => changeStatus(todo)}/>        
+                        <li key={todo.id} data-testid="todo">
+                            <input type="checkbox" data-testid = "input-checkbox" onChange={() => changeStatusToDone(todo)}/>
                             {todo.todo}
                         </li>                          
                         </>
                     ))}
                 </div>
                 <div className="todos">
-                <span>DONE</span>
-                    {todos.map((todo) => todo.isDone && (
+                <span className="title">DONE</span>
+                    {todos.map((todo ,index) => todo.isDone && (
                         <>
-                        <li>
-                            <input type="checkbox" />        
+                        <li key={todo.id || index} data-testid='done'>
+                            <input data-testid='input-done-checkbox' type="checkbox" onChange={() => changeStatusTodo(todo)} checked={true} />
                             {todo.todo}
                         </li>                          
                         </>

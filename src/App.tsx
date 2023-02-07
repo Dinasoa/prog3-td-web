@@ -13,19 +13,24 @@ const App: React.FC = () => {
   
   const handleAdd = (e:React.FormEvent) => {
     e.preventDefault();
-
     if(todo){
       setTodos([...todos , {id: todos.length , todo , isDone:false}])
       setTodo("");
     }
   }
 
-  const changeStatus = (_todo:Todo) => {
+  const changeStatusTodone = (_todo:Todo) => {
     const index = todos.findIndex(todo => todo.id === _todo.id)
     const temp = [...todos]
     temp[index] = {..._todo, isDone: true}
     setTodos([...temp])
-  
+  }
+
+  const changeStatusTodo = (_todo:Todo) => {
+    const index = todos.findIndex(todo => todo.id === _todo.id)
+    const temp = [...todos]
+    temp[index] = {..._todo, isDone: false}
+    setTodos([...temp])
   }
 
   console.log(todos);
@@ -37,7 +42,7 @@ const App: React.FC = () => {
       TO DO LIST
      </span>
      <InputsField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-     <TodoList todos={todos} setTodos={setTodos} changeStatus={changeStatus}/> 
+     <TodoList todos={todos} setTodos={setTodos} changeStatusToDone={changeStatusTodone} changeStatusTodo={changeStatusTodo}/>
     </div>
     </>
   )

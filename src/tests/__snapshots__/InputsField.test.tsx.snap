@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input field should match snapshot 1`] = `
+<form
+  className="input"
+  onSubmit={[Function]}
+>
+  <input
+    className="input__box"
+    onChange={[Function]}
+    placeholder="Enter a task"
+    type="input"
+    value="todo"
+  />
+  <button
+    className="input_submit"
+    data-testid="submit-button"
+    type="submit"
+  >
+    Enter
+  </button>
+</form>
+`;
